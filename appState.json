@@ -1,0 +1,201 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "33c48cfc-5b28-4e78-a0f9-c5b61226d69d": {
+        "id": "33c48cfc-5b28-4e78-a0f9-c5b61226d69d",
+        "parent": null,
+        "name": "photo-uploader.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "photo-uploader.js",
+        "cursor": {
+          "lineNumber": 4,
+          "column": 57
+        },
+        "config": {
+          "runtime": "nodejs10.x",
+          "handler": "handler",
+          "timeout": 181,
+          "memory": 256,
+          "layers": [],
+          "name": "photo-uploader"
+        },
+        "triggers": [
+          {
+            "resourceName": "httpApigPhotoUploadAPI",
+            "config": {
+              "defaultRoute": false,
+              "method": "PUT",
+              "route": "/uploadMyPhoto"
+            }
+          },
+          {
+            "resourceName": "httpApigPhotoUploadAPI",
+            "config": {
+              "defaultRoute": false,
+              "method": "PUT",
+              "route": "/uploadPhoto"
+            }
+          }
+        ],
+        "lastUpdated": 1610713415654
+      },
+      "ab107071-87d2-41c2-a9d3-124f11c27388": {
+        "id": "ab107071-87d2-41c2-a9d3-124f11c27388",
+        "parent": null,
+        "name": "Constants.js",
+        "type": "JS_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "Constants.js",
+        "lastUpdated": 1610713431359,
+        "cursor": {
+          "lineNumber": 3,
+          "column": 46
+        }
+      },
+      "f5d24472-1748-4a7a-b237-7eb4093ae58e": {
+        "id": "f5d24472-1748-4a7a-b237-7eb4093ae58e",
+        "parent": null,
+        "name": "photo-inspector.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "photo-inspector.js",
+        "cursor": {
+          "lineNumber": 81,
+          "column": 15
+        },
+        "config": {
+          "runtime": "nodejs10.x",
+          "handler": "handler",
+          "timeout": 180,
+          "memory": 256,
+          "layers": [],
+          "name": "photoInspector"
+        },
+        "triggers": [
+          {
+            "resourceName": "s3myPicturesUdith",
+            "config": {
+              "type": "s3:ObjectCreated:*",
+              "keyPrefix": "photos",
+              "keySuffix": ""
+            }
+          }
+        ],
+        "lastUpdated": 1610713434440
+      }
+    },
+    "openFiles": [
+      "33c48cfc-5b28-4e78-a0f9-c5b61226d69d",
+      "ab107071-87d2-41c2-a9d3-124f11c27388",
+      "f5d24472-1748-4a7a-b237-7eb4093ae58e"
+    ],
+    "currentFileId": "f5d24472-1748-4a7a-b237-7eb4093ae58e",
+    "resources": {
+      "httpApigPhotoUploadAPI": {
+        "name": "httpApigPhotoUploadAPI",
+        "type": "API_GATEWAY",
+        "config": {
+          "apiType": 2,
+          "mode": 0,
+          "apiName": "PhotoUploadAPI",
+          "stageName": "$default",
+          "corsConfig": {
+            "maxAge": 0,
+            "allowCredentials": false
+          }
+        }
+      },
+      "s3myPicturesUdith": {
+        "name": "s3myPicturesUdith",
+        "type": "S3",
+        "config": {
+          "mode": 0,
+          "bucket": {
+            "name": "my-pictures-udith"
+          }
+        }
+      },
+      "rekognitionResource": {
+        "name": "rekognitionResource",
+        "type": "Rekognition",
+        "config": {}
+      },
+      "ddbPicturesIamIn": {
+        "name": "ddbPicturesIamIn",
+        "type": "DynamoDB",
+        "config": {
+          "mode": 0,
+          "table": {
+            "arn": "",
+            "name": "PicturesIamIn",
+            "partitionKey": "imageKey",
+            "partitionKeyType": "S",
+            "hasSortKey": false,
+            "sortKey": "",
+            "sortKeyType": "S",
+            "payPerRequest": true,
+            "mode": 0
+          }
+        }
+      }
+    },
+    "customTemplate": {
+      "syntax": "JSON",
+      "overrideDefault": false,
+      "dialect": null,
+      "definitions": null
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {
+        "mime-types": {
+          "name": "mime-types",
+          "version": "2.1.28",
+          "dev": false,
+          "language": "nodejs"
+        },
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "language": "nodejs",
+          "version": "2.817.0",
+          "dev": true,
+          "notRemovable": false
+        }
+      }
+    }
+  },
+  "PROJECT_META": {
+    "sigmaVersion": "1.5.1",
+    "projectName": "am-I-in-the-photo",
+    "projectDescription": "This serverless application can check if a person is in a given image",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "language": "nodejs",
+    "platformRegions": {},
+    "lastSave": 1610715190569
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "am-i-in-the-photo",
+      "url": "https://github.com/Udith/am-i-in-the-photo"
+    }
+  }
+}
